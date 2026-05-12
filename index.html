@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayoub Infrastructure Radar</title>
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="control-panel">
+        <h1>Infrastructure</h1>
+        <p class="subtitle">Personalized for Ayoub · Cold Black Theme</p>
+
+        <section class="panel-block">
+          <h2>Mode</h2>
+          <div class="radio-row">
+            <label><input type="radio" name="mode" checked /> View Mode</label>
+            <label><input type="radio" name="mode" /> RBL Mode</label>
+          </div>
+          <div class="toggle-row">
+            <label><input type="checkbox" id="toggleRbl" /> Show RBL</label>
+            <label><input type="checkbox" id="toggleEta" checked /> Show Time Est</label>
+          </div>
+        </section>
+
+        <section class="panel-block">
+          <h2>Aircraft Speed</h2>
+          <div class="speed-wrap">
+            <input type="range" id="speedSlider" min="120" max="520" value="280" />
+            <output id="speedReadout">280 kts</output>
+          </div>
+        </section>
+
+        <section class="panel-block">
+          <h2>Filters</h2>
+          <div class="toggle-row">
+            <label><input type="checkbox" id="ifrs" checked /> IFR Fixes</label>
+            <label><input type="checkbox" id="vfrs" checked /> VFR Fixes</label>
+          </div>
+          <input type="text" id="fixFilter" placeholder="Fix Name" />
+          <small id="fixCounter">IFR Fixes 0 · VFR Fixes 0</small>
+        </section>
+
+        <section class="panel-block">
+          <h2>Legend</h2>
+          <div class="legend-item"><span class="dot ifr"></span> IFR Reporting Point</div>
+          <div class="legend-item"><span class="dot vfr"></span> VFR Reporting Point</div>
+          <div class="legend-item"><span class="line"></span> Planned Route</div>
+        </section>
+      </aside>
+
+      <section class="map-wrap">
+        <div id="map"></div>
+      </section>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>

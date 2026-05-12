@@ -1,0 +1,72 @@
+:root {
+  --bg: #050608;
+  --panel: #0d1014;
+  --panel-soft: #121721;
+  --text: #d4dde8;
+  --muted: #7c8a9c;
+  --accent: #7db3ff;
+  --vfr: #8ec4ff;
+  --ifr: #56e0c3;
+  --line: #b2c5df;
+  --border: #1f2732;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #0b0f14 0%, var(--bg) 45%);
+  color: var(--text);
+  font-family: Inter, Segoe UI, Roboto, sans-serif;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 330px 1fr;
+}
+
+.control-panel {
+  padding: 1rem;
+  background: linear-gradient(170deg, var(--panel), #080b10);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+}
+
+h1 { margin: 0 0 .2rem; font-size: 1.5rem; }
+.subtitle { color: var(--muted); margin: 0 0 1rem; font-size: .9rem; }
+.panel-block {
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .8rem;
+  margin-bottom: .8rem;
+}
+.panel-block h2 { margin: 0 0 .6rem; font-size: 1rem; color: #e7efff; }
+.radio-row, .toggle-row { display: flex; gap: .8rem; flex-wrap: wrap; margin-bottom: .55rem; }
+label { font-size: .86rem; color: #c2ccdb; }
+input[type="text"] {
+  width: 100%;
+  padding: .55rem .65rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #0a0e14;
+  color: var(--text);
+}
+.speed-wrap { display: grid; gap: .4rem; }
+input[type="range"] { width: 100%; accent-color: var(--accent); }
+output { font-size: .88rem; color: var(--accent); }
+small { color: var(--muted); }
+.legend-item { display: flex; align-items: center; gap: .5rem; margin-bottom: .35rem; font-size: .85rem; }
+.dot { width: 10px; height: 10px; border-radius: 999px; display: inline-block; }
+.dot.ifr { background: var(--ifr); }
+.dot.vfr { background: var(--vfr); }
+.line { width: 24px; border-bottom: 2px solid var(--line); display: inline-block; }
+
+.map-wrap { min-height: 100vh; }
+#map { height: 100vh; width: 100%; }
+
+@media (max-width: 860px) {
+  .app-shell { grid-template-columns: 1fr; }
+  .control-panel { border-right: none; border-bottom: 1px solid var(--border); }
+  #map { height: 65vh; }
+}
